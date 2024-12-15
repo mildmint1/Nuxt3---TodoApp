@@ -1,75 +1,76 @@
-# Nuxt Minimal Starter
+# TODO 管理ウェブサイト
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Nuxt3 と Pinia を使用して実装した **TODO 管理 Web アプリケーション** です。
 
-## Setup
+---
 
-Make sure to install dependencies:
+## 📋 主な機能
+
+### 1. メインページ
+
+- **「Todo List App」** のタイトルを表示
+- 最近の活動履歴をリスト形式で表示
+- 活動項目をクリックすると該当する TODO に移動
+
+### 2. TODO ページ
+
+- **TODO 追加、検索、削除** 機能を提供
+- 検索履歴の保存と削除が可能
+- TODO の **編集** および **完了状態（チェック）** の切り替えが可能
+- 特定の TODO を **ハイライト表示** し、画面中央にスクロール
+
+### 3. Pinia 状態管理
+
+- TODO リストと最近の活動履歴を **クッキー** に保存・管理
+- 最近の活動履歴は **最大 10 件** まで保持
+
+---
+
+## 🚀 実行方法
+
+### 1. リポジトリをクローン
+
+お使いの IDE でプロジェクトをクローンしてください:
 
 ```bash
-# npm
+git clone https://github.com/mildmint1/Nuxt3---TodoApp.git
+```
+
+### 2. プロジェクトのインストール
+
+以下のコマンドで依存関係をインストールします:
+
+```bash
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+以下のコマンドで 開発サーバー を起動し、プロジェクトを実行します:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## 🛠️ 技術スタック
 
-Build the application for production:
+- **フレームワーク**: Nuxt3
+- **言語**: TypeScript
+- **状態管理**: Pinia
+- **クッキー管理**: js-cookie
+- **UI スタイル**: Tailwind CSS
 
-```bash
-# npm
-npm run build
+---
 
-# pnpm
-pnpm build
+## 📂 プロジェクト構成
 
-# yarn
-yarn build
-
-# bun
-bun run build
+```plaintext
+.
+├── components/          # 再利用可能なコンポーネント
+├── pages/               # ページルーティング
+│   ├── index.vue        # メインページ
+│   └── todo.vue         # TODOページ
+├── stores/              # Pinia状態管理
+│   └── todoStore.ts     # TODO関連の状態管理
+├── assets/              # 静的ファイルとスタイル
+├── package.json         # プロジェクト依存関係とスクリプト
+└── README.md            # プロジェクトの説明ファイル
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
