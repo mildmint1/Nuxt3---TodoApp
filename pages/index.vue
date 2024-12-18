@@ -35,16 +35,17 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
-import { useTodoStore } from "~/stores/todoStore";
-import { useRouter } from "vue-router";
 
-const store = useTodoStore();
-const activities = computed(() => store.activities);
+import { useRouter } from "vue-router";
+import { useActivityStore } from "../stores/activityStore";
+
+const activityStore = useActivityStore();
+const activities = computed(() => activityStore.activities);
 const router = useRouter();
 
 // コンポーネントがマウントされたとき、活動データをロード
 onMounted(() => {
-  store.loadActivities(); // クッキーから活動データをロードする
+  activityStore.loadActivities(); // クッキーから活動データをロードする
 });
 
 // Todoリストへ移動する関数

@@ -65,12 +65,19 @@ npm run dev
 ```plaintext
 .
 ├── components/          # 再利用可能なコンポーネント
+│   ├── SearchHistory.vue  # 検索履歴表示コンポーネント
+│   ├── TodoForm.vue       # TODO追加・検索フォーム
+│   ├── TodoItem.vue       # 単一のTODOアイテム
+│   └── TodoList.vue       # TODOリストコンポーネント
+│
 ├── pages/               # ページルーティング
 │   ├── index.vue        # メインページ
-│   └── todo.vue         # TODOページ
+│   └── todo.vue         # TODO管理ページ
+│
 ├── stores/              # Pinia状態管理
+│   ├── activityStore.ts # 最近の活動履歴管理
 │   └── todoStore.ts     # TODO関連の状態管理
-├── assets/              # 静的ファイルとスタイル
-├── package.json         # プロジェクト依存関係とスクリプト
-└── README.md            # プロジェクトの説明ファイル
+│
+├── types/               # 型定義ファイル
+│   └── todo.ts          # TODOデータ型
 ```
