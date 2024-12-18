@@ -10,18 +10,18 @@ export const useTodoStore = defineStore("todoStore", {
     }[],
   }),
   actions: {
-    // 새로운 TODO를 추가
+    // 新しいTODOを追加
     addTodo(text: string) {
       const newTodo = { id: Date.now(), text, completed: false };
       this.todos.push(newTodo);
       this.saveTodos();
     },
-    // TODO 삭제
+    // TODOを削除
     removeTodo(id: number) {
       this.todos = this.todos.filter((todo) => todo.id !== id);
       this.saveTodos();
     },
-    // TODO 완료 상태 토글
+    // TODOの完了状態を切り替え
     toggleComplete(id: number) {
       const todo = this.todos.find((todo) => todo.id === id);
       if (todo) {
@@ -29,7 +29,7 @@ export const useTodoStore = defineStore("todoStore", {
         this.saveTodos();
       }
     },
-    // TODO 업데이트
+    // TODOを更新
     updateTodo(id: number, newText: string) {
       const todo = this.todos.find((todo) => todo.id === id);
       if (todo) {
@@ -37,7 +37,7 @@ export const useTodoStore = defineStore("todoStore", {
         this.saveTodos();
       }
     },
-    // 쿠키에 저장하는 함수
+    // クッキーに保存する関数
     saveTodos() {
       Cookies.set("todos", JSON.stringify(this.todos), { expires: 7 });
     },

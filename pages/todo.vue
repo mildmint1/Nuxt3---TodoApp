@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-100 py-10">
     <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-      <!-- Form -->
+      <!-- フォーム -->
       <TodoForm
         :history="searchHistory"
         @add="addTodo"
@@ -10,7 +10,7 @@
         @delete-history="deleteSearchHistory"
       />
 
-      <!-- 검색 리셋 버튼 -->
+      <!-- 検索リセットボタン -->
       <button
         v-if="isSearching"
         @click="resetSearch"
@@ -19,7 +19,7 @@
         すべて表示
       </button>
 
-      <!-- Todo List -->
+      <!-- Todoリスト -->
       <TodoList
         :todos="filteredTodos"
         :highlight-id="highlightId"
@@ -44,32 +44,40 @@ const filteredTodos = computed<Todo[]>(() => todoStore.todos);
 
 const highlightId = ref<number | null>(null);
 
+// 選択された検索履歴を使用して検索を実行
 const selectSearchHistory = (history: string) => {
-  // 선택된 검색 기록을 사용하여 검색 실행
   searchTask(history);
 };
 
+// 検索履歴を削除
 const deleteSearchHistory = (index: number) => {
-  // 검색 기록 삭제
   searchHistory.value.splice(index, 1);
 };
 
+// 完了状態を切り替える
 const toggleComplete = (id: number) => {
   todoStore.toggleComplete(id);
 };
 
+// Todoを編集する
 const editTodo = (id: number, newText: string) => {
   todoStore.updateTodo(id, newText);
 };
 
+// Todoを削除する
 const removeTodo = (id: number) => {
   todoStore.removeTodo(id);
 };
 
+// Todoを追加する
 const addTodo = (text: string) => todoStore.addTodo(text);
+
+// 検索を実行する
 const searchTask = (text: string) => {
-  /* 검색 로직 */
+  /* 検索ロジック */
 };
+
+// 検索をリセットする
 const resetSearch = () => {
   isSearching.value = false;
 };

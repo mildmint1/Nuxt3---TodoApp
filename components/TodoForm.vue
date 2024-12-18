@@ -7,7 +7,6 @@
         @focus="showSearchHistory = true"
         class="w-full px-4 py-2 border rounded-lg focus:ring-blue-400"
       />
-      <!-- 검색 히스토리 -->
       <SearchHistory
         v-if="showSearchHistory && searchHistory.length"
         :history="searchHistory"

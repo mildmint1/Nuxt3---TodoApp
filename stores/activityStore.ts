@@ -10,17 +10,18 @@ export const useActivityStore = defineStore("activityStore", {
     }[],
   }),
   actions: {
+    // アクティビティを読み込む
     loadActivities() {
       this.activities = JSON.parse(Cookies.get("activities") || "[]");
     },
-    // 새로운 활동 추가
+    // 新しいアクティビティを追加
     addActivity(text: string, todoId?: number) {
       const newActivity = { id: Date.now(), text, todoId };
       this.activities.unshift(newActivity);
-      this.activities = this.activities.slice(0, 10); // 최근 활동 최대 10개
+      this.activities = this.activities.slice(0, 10); // 最近のアクティビティは最大10件まで
       this.saveActivities();
     },
-    // 쿠키에 저장하는 함수
+    // クッキーに保存する関数
     saveActivities() {
       Cookies.set("activities", JSON.stringify(this.activities), {
         expires: 7,
